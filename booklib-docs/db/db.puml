@@ -1,0 +1,54 @@
+@startuml
+
+!theme plain
+hide empty methods
+
+!procedure $schema($name, $slug)
+package "$name" as $slug <<Rectangle>>
+!endprocedure
+
+!procedure $table($name, $slug)
+entity "<b>$name</b>" as $slug << (T, Orange) table >>
+!endprocedure
+
+!procedure $view($name, $slug)
+entity "<b>$name</b>" as $slug << (V, Aquamarine) view >>
+!endprocedure
+
+!procedure $pk($name)
+<color:#GoldenRod><&key></color> <b>$name</b>
+!endprocedure
+
+!procedure $fk($name)
+<color:#Silver><&key></color> $name
+!endprocedure
+
+!procedure $column($name)
+{field} <color:#White><&media-record></color> $name
+!endprocedure
+
+title "Book Lib Schema"
+$schema("BOOKLIB", "book_lib_schema") {
+
+    $table("BOOK", "book_table") {
+        $pk("ID"): INTEGER NOT NULL
+        $column("NAME"): VARCHAR NOT NULL
+    }
+
+    $table("AUTHOR", "author_table") {
+        $pk("ID"): INTEGER NOT NULL
+        $column("FIRST_NAME"): VARCHAR NOT NULL
+        $column("LAST_NAME"): VARCHAR NOT NULL
+    }
+
+    $table("BOOK_AUTHOR", "book_author_table"){
+        $column("BOOK_ID"): INTEGER NOT NULL
+        $column("AUTHOR_ID") INTEGER NOT NULL
+    }
+
+}
+
+book_table::ID ||--o{ book_author_table::BOOK_ID : FK_BOOK
+author_table::ID ||--o{ book_author_table::AUTHOR_ID : FK_AUTHOR
+
+@enduml
