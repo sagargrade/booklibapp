@@ -11,3 +11,9 @@ build
 
 .data
 .vscode
+
+# Eclipse files
+.settings
+.project
+bin
+.classpath
