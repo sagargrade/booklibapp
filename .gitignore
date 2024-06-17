@@ -17,3 +17,10 @@ build
 .project
 bin
 .classpath
+
+# Intellij Files
+.idea
+.angular
+*.iml
+out
+**/src/main/generated/
