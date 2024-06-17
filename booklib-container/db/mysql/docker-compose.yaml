@@ -1,0 +1,11 @@
+version: "3"
+
+services:
+  mysqldb:
+    build: .
+    container_name: booklibapp-mysqldb
+    ports:
+      - "3306:3306"
+    volumes:
+      - "./.data/db:/var/lib/mysql"
+# type `docker-compose up -d` in command line to run container
