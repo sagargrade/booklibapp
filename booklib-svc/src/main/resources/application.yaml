@@ -1,0 +1,34 @@
+spring:
+   profiles:
+      active: dev
+   application:
+      name: booklib-svc
+   datasource:
+      url: jdbc:mysql://localhost:3306/BOOKLIB
+      hikari:
+         schema: BOOKLIB
+         minimumIdle: 5
+         maximumPoolSize: 10
+         idleTimeout: 30000
+         poolName: booklibHikariCP
+         maxLifetime: 2000000
+         connectionTimeout: 30000
+      username: booklibapp
+      password: booklibapp
+   jpa:
+      show-sql: true
+      database: mysql
+      properties:
+         hibernate:
+            dialect: 
+            hbm2ddl.auto: none
+            format_sql: true
+            default_schema: BOOKLIB
+application:
+   api:
+      root: /rest
+      
+springdoc:
+   api-docs.path: /openapi
+   swagger-ui.path: /openapi/ui
+   pathsToMatch: ${application.api.root}/** 

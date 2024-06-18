@@ -1,0 +1,50 @@
+plugins {
+	id 'java'
+    id 'org.springframework.boot' version '3.3.0'
+    id 'io.spring.dependency-management' version '1.1.5'
+}
+
+group = 'edu.mylearning.book.library'
+version = '0.0.1-SNAPSHOT'
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_17
+    targetCompatibility = JavaVersion.VERSION_17
+}
+
+repositories {
+    mavenCentral()
+} 
+
+dependencies {
+	//Spring Dependecies
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+	implementation 'org.springframework.boot:spring-boot-starter-validation'
+	
+	// IMPORTANT : lombok annotationProcessor to be declared before mapstruct annotationProcessor 
+	// if not generated mapping will ignore the lombok getters and setters
+	
+	//Lombok
+	compileOnly 'org.projectlombok:lombok:1.18.30'
+	testCompileOnly 'org.projectlombok:lombok:1.18.30'
+	annotationProcessor 'org.projectlombok:lombok:1.18.30'
+	
+	//MapStruct
+	implementation 'org.mapstruct:mapstruct:1.5.3.Final'
+	annotationProcessor 'org.mapstruct:mapstruct-processor:1.5.3.Final'
+	
+	//Testing
+	implementation 'org.springframework.boot:spring-boot-starter-test'
+}
+
+bootJar {
+	enabled = false
+}
+
+jar {
+	enabled = true
+}
+
+tasks.test {
+	useJUnitPlatform()
+}
