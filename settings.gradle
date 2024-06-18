@@ -8,5 +8,6 @@
  */
 
 rootProject.name = 'booklibapp'
-include('booklib-svc')
-include('booklib-core')
+
+include 'booklib-core'
+include 'booklib-svc'

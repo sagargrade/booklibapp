@@ -20,7 +20,7 @@ spring:
       database: mysql
       properties:
          hibernate:
-            dialect: 
+            dialect: org.hibernate.dialect.MySQL8Dialect
             hbm2ddl.auto: none
             format_sql: true
             default_schema: BOOKLIB

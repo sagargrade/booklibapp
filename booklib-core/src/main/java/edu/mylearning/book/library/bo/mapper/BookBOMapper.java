@@ -12,10 +12,10 @@ import edu.mylearning.book.library.entity.Book;
 
 @Mapper(builder = @Builder(disableBuilder = true), componentModel = "spring", unmappedTargetPolicy = ReportingPolicy.ERROR)
 public interface BookBOMapper {
-	
+
 	@Mapping(target = "name", ignore = true)
 	BookBO toBO(Book book);
-	
+
 	@Mapping(target = "name", ignore = true)
 	List<BookBO> toBO(List<Book> books);
 }

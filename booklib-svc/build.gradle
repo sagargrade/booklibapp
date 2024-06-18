@@ -29,6 +29,13 @@ dependencies {
 	compileOnly 'org.projectlombok:lombok:1.18.30'
 	testCompileOnly 'org.projectlombok:lombok:1.18.30'
 	annotationProcessor 'org.projectlombok:lombok:1.18.30'
+	
+	//Mapstruct
+	implementation 'org.mapstruct:mapstruct:1.5.3.Final'
+	annotationProcessor 'org.mapstruct:mapstruct-processor:1.5.3.Final'
+	
+	//Database
+	implementation 'com.mysql:mysql-connector-j:8.0.33'
     
     //OpenApi to SwaggerUI
     implementation 'org.springdoc:springdoc-openapi-starter-webmvc-ui:2.3.0'
