@@ -2,7 +2,7 @@ version: "3"
 
 services:
   mysqldb:
-    build: .
+    build: ..
     container_name: booklibapp-mysqldb
     ports:
       - "3306:3306"
